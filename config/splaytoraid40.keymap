@@ -17,6 +17,7 @@
 #define FUN 3
 #define NAV 4
 #define SET 5
+#define RGB 6
 
 &lt {
 	quick_tap_ms = <200>;
@@ -148,7 +149,7 @@
 			&kp Q		&kp W		&kp E		&kp R		&kp T				&kp Y			&kp U			&kp I		&kp O		&kp P
 			&hl LGUI A	&hl LALT S	&hl LCTRL D	&hs LSHFT F	&hl RALT G			&hr RALT H		&hs RSHFT J		&hr RCTRL K	&hr LALT L	&hr LGUI SEMI
 			&kp Z		&kp X		&kp C		&kp V		&kp B				&kp N			&kp M			&kp COMMA	&kp DOT		&kp FSLH
-									&kp ESC		&lt SET TAB	&lt NAV RET			&lt NUM SPACE	&lt FUN BSPC	&kp DEL
+									&lt RGB ESC	&lt SET TAB	&lt NAV RET			&lt NUM SPACE	&lt FUN BSPC	&kp DEL
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -159,7 +160,7 @@
 			&kp Q		&kp W		&kp F		&kp P		&kp B				&kp J			&kp L			&kp U		&kp Y		&kp SEMI
 			&hl LGUI A	&hl LALT R	&hl LCTRL S	&hs LSHFT T	&hl RALT G			&hr RALT M		&hs RSHFT N		&hr RCTRL E	&hr LALT I	&hr LGUI O
 			&kp Z		&kp X		&kp C		&kp D		&kp V				&kp K			&kp H			&kp COMMA	&kp DOT		&kp FSLH
-									&kp ESC		&lt SET TAB	&lt NAV RET			&lt NUM SPACE	&lt FUN BSPC	&kp DEL
+									&lt RGB ESC	&lt SET TAB	&lt NAV RET			&lt NUM SPACE	&lt FUN BSPC	&kp DEL
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -200,9 +201,20 @@
 		settings_layer {
 			label = "Settings";
 			bindings = <
-			&none		&none		&none		&reset		&none				&out OUT_USB	&out OUT_BLE	&none			&none			&rgb_ug RGB_TOG
+			&none		&none		&none		&reset		&none				&out OUT_USB	&out OUT_BLE	&none			&none			&none
 			&none		&none		&none		&bootloader	&none				&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
 			&none		&none		&none		&none		&none				&to 0			&to 1			&bt BT_PRV		&bt BT_NXT		&bt BT_CLR
+									&none		&none		&none				&none			&none			&none
+			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+
+		rgb_layer {
+			label = "ArrGeeBee";
+			bindings = <
+			&none		&none		&none		&none		&none				&rgb_ug RGB_EFF	&rgb_ug RGB_SPI	&rgb_ug RGB_HUI	&rgb_ug RGB_SAI	&rgb_ug RGB_BRI
+			&none		&none		&none		&none		&none				&rgb_ug RGB_EFR	&rgb_ug RGB_SPD	&rgb_ug RGB_HUD	&rgb_ug RGB_SAD	&rgb_ug RGB_BRD
+			&none		&none		&none		&none		&none				&rgb_ug RGB_TOG	&none			&none			&none			&ext_power EP_TOG
 									&none		&none		&none				&none			&none			&none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
